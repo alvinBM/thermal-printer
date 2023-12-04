@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       // Créez une instance de l'imprimante en spécifiant le driver nécessaire
       const printer = new ThermalPrinter({
         type: PrinterTypes.EPSON,
-        interface: "LPT1", // Assurez-vous que c'est la bonne interface
+        interface: "COM1", // Assurez-vous que c'est la bonne interface
         // driver: require("printer"), // Assurez-vous que 'printer' est installé via npm
         // Si vous utilisez Electron ou un environnement similaire, vous pouvez avoir besoin de 'electron-printer'.
       });
