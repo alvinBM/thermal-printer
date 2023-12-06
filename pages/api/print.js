@@ -9,7 +9,7 @@ export default async function handler(req, res) {
       // Créez une instance de l'imprimante en spécifiant le driver nécessaire
       const printer = new ThermalPrinter({
         type: PrinterTypes.EPSON,
-        interface: "COM3", // Assurez-vous que c'est la bonne interface
+        interface: "COM4", // Assurez-vous que c'est la bonne interface
         // driver: require("printer"), // Assurez-vous que 'printer' est installé via npm
         // Si vous utilisez Electron ou un environnement similaire, vous pouvez avoir besoin de 'electron-printer'.
       });
@@ -18,7 +18,7 @@ export default async function handler(req, res) {
       const isPrinterConnected = await printer.isPrinterConnected();
       if (!isPrinterConnected) {
         // throw new Error("L'imprimante n'est pas connectée.");
-        return res.status(200).json({ success: false, message: "L'imprimante n'est pas connectée." });
+        return res.status(200).json({ success: false, message: "L'imprimante n'est pas connectée.", printerInfo : printer });
       }
 
       // Configurez l'imprimante et imprimez
